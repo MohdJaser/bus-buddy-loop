@@ -5,7 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import TransportLayout from "@/components/TransportLayout";
-import { MapPin, Clock, Navigation, MessageSquare, Search, Bus, AlertTriangle } from "lucide-react";
+import LiveMap from "@/components/maps/LiveMap";
+import { MapPin, Clock, Navigation, MessageSquare, Search, Bus, AlertTriangle, Map } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const liveBuses = [
@@ -60,12 +61,18 @@ const PassengerDashboard = () => {
         </Button>
       }
     >
-      <Tabs defaultValue="live" className="space-y-6">
-        <TabsList className="grid w-full grid-cols-3">
+      <Tabs defaultValue="map" className="space-y-6">
+        <TabsList className="grid w-full grid-cols-4">
+          <TabsTrigger value="map">Live Map</TabsTrigger>
           <TabsTrigger value="live">Live Buses</TabsTrigger>
           <TabsTrigger value="plan">Plan Route</TabsTrigger>
           <TabsTrigger value="nearby">Nearby Stops</TabsTrigger>
         </TabsList>
+
+        {/* Live Map Tab */}
+        <TabsContent value="map" className="space-y-4">
+          <LiveMap />
+        </TabsContent>
 
         {/* Live Buses Tab */}
         <TabsContent value="live" className="space-y-4">

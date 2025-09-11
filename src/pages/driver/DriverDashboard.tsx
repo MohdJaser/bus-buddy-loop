@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import TransportLayout from "@/components/TransportLayout";
+import DriverMap from "./DriverMap";
 import { Play, Square, MapPin, Clock, Users, AlertTriangle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -183,6 +184,13 @@ const DriverDashboard = () => {
             </Card>
           </div>
         )}
+
+        {/* Driver Map */}
+        <DriverMap 
+          selectedRoute={selectedRoute}
+          isActive={isActive}
+          currentLocation={currentLocation}
+        />
 
         {/* Current Location */}
         <Card className="shadow-card">
